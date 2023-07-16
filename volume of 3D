@@ -1,0 +1,25 @@
+class rectangle{
+     int length=5, width=4, height=6;
+    void calculate(){
+        System.out.println("Super class method called here");
+        System.out.println("Volume is: "+length*width*height);
+    }
+}
+class cube extends rectangle{
+    cube(){
+        super.calculate();
+    }
+    // To avoid method overriding we used super keyword / super method 
+    // If you want to do overriding then avoid or delete above constructor from your code 
+    void calculate(){
+        System.out.println("Sub class method called here");
+        System.out.println("Volume is: "+(int)Math.pow(height,3));
+    }
+
+}
+public class volumeof3D {
+    public static void main(String[] args) {
+        cube volume = new cube();
+        volume.calculate();
+    }
+}
