@@ -1,0 +1,34 @@
+import java.util.*;
+class area{
+    int calculate(int a){
+        return (int)Math.pow(a,4);
+    }
+    int calculate(int x,int y){
+        return x * y;
+    }
+}
+public class areaof2D {
+    public static void main(String[] args) {
+        area ob = new area();
+        int res, side1, side2, side;
+        Scanner input = new Scanner(System.in);
+        System.out.println("Press 1 for area of rectangle and Press 2 for area of square ");
+        int choice = input.nextInt();
+        if(Objects.equals(choice,1)){
+            System.out.println("For rectangle enter two sides: ");
+            side1 = input.nextInt();
+            side2 = input.nextInt();
+            res=ob.calculate(side1,side2);
+            System.out.println("Area of rectangular is "+ res);
+        }
+        else if(Objects.equals(choice,2)){
+            System.out.println("For square enter side: ");
+            side = input.nextInt();
+            res=ob.calculate(side);
+            System.out.println("Area of rectangular is "+ res);
+        }
+        else {
+            System.out.println("Wrong Input ");
+        }
+    }
+}
