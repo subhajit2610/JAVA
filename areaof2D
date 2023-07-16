@@ -1,8 +1,6 @@
 import java.util.*;
 class area{
-    int calculate(int a){
-        return (int)Math.pow(a,4);
-    }
+    int calculate(int a){return 6*(int)(Math.pow(a,2));}
     int calculate(int x,int y){
         return x * y;
     }
