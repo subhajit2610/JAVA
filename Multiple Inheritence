@@ -1,0 +1,19 @@
+// multiple inheritance program in java
+
+interface Vehicle{
+    default void test(){
+        System.out.println("Testing a vehicle");
+    }
+}
+interface Car extends Vehicle{
+}
+interface Bike extends Vehicle{
+}
+
+class Demo implements Car,Bike{
+    
+    public static void main(String[] args) {
+        Demo pb= new Demo();
+        pb.test();
+    }
+}
