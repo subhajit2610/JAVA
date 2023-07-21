@@ -1,0 +1,36 @@
+public class PingPongThread {
+
+        public static void main(String[] args) {
+            Thread pingThread = new Thread(new PingRunnable());
+            Thread pongThread = new Thread(new PongRunnable());
+
+            pingThread.start();
+            pongThread.start();
+        }
+
+        private static class PingRunnable implements Runnable {
+            public void run() {
+                try {
+                    while (true) {
+                        System.out.println("PING");
+                        Thread.sleep(3000); // 3 seconds delay
+                    }
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        private static class PongRunnable implements Runnable {
+            public void run() {
+                try {
+                    while (true) {
+                        System.out.println("PONG");
+                        Thread.sleep(3000); // 3 seconds delay
+                    }
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
