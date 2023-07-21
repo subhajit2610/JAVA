@@ -1,0 +1,30 @@
+import java.util.Scanner;
+public class substring {
+
+        public static void main(String[] args) {
+            Scanner scanner = new Scanner(System.in);
+
+            System.out.print("Enter the input string: ");
+            String input = scanner.nextLine();
+
+            System.out.print("Enter the starting index (n): ");
+            int n = scanner.nextInt();
+
+            System.out.print("Enter the ending index (k): ");
+            int k = scanner.nextInt();
+
+            String result = extractSubstring(input, n, k);
+            System.out.println("Extracted substring: " + result);
+
+            scanner.close();
+        }
+
+        public static String extractSubstring(String input, int n, int k) {
+            if (n >= input.length() || n < 0 || k <= n || k > input.length()) {
+                System.err.println("Invalid input or index values.");
+                return "";
+            }
+
+            return input.substring(n, k);
+        }
+    }
