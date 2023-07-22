@@ -1,0 +1,56 @@
+import java.util.Scanner;
+
+class ShowRoom {
+    String name;
+    long mobno;
+    double cost;
+    double dis;
+    double amount;
+
+    // Default constructor
+    ShowRoom() {
+        name = "";
+        mobno = 0;
+        cost = 0;
+        dis = 0;
+        amount = 0;
+    }
+
+    // Method to input customer details
+    void input() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter customer name: ");
+        name = scanner.nextLine();
+        System.out.print("Enter mobile number: ");
+        mobno = Long.parseLong(scanner.nextLine());
+        System.out.print("Enter cost of items purchased: ₹");
+        cost = Double.parseDouble(scanner.nextLine());
+    }
+
+    // Method to calculate discount and amount to be paid
+    void calculate() {
+        if (cost <= 10000) {
+            dis = cost * 0.05;
+        } else if (cost > 10000 && cost <= 20000) {
+            dis = cost * 0.10;
+        } else if (cost > 20000 && cost <= 35000) {
+            dis = cost * 0.15;
+        } else {
+            dis = cost * 0.20;
+        }
+        amount = cost - dis;
+    }
+
+    public static void main(String[] args) {
+        ShowRoom customer = new ShowRoom();
+        customer.input();
+        customer.calculate();
+
+        System.out.println("\nCustomer Details:");
+        System.out.println("Name: " + customer.name);
+        System.out.println("Mobile Number: " + customer.mobno);
+        System.out.println("Cost of Items Purchased: ₹" + customer.cost);
+        System.out.println("Discount Amount: ₹" + customer.dis);
+        System.out.println("Amount to be Paid: ₹" + customer.amount);
+    }
+}
