@@ -1,0 +1,75 @@
+import java.applet.Applet;
+import java.awt.Button;
+import java.awt.Label;
+import java.awt.TextField;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class LCMHCFApplet extends Applet implements ActionListener {
+    private TextField num1Field, num2Field;
+    private Label lcmLabel, hcfLabel;
+    private Button calculateButton;
+
+    @Override
+    public void init() {
+        num1Field = new TextField(10);
+        num2Field = new TextField(10);
+        lcmLabel = new Label("LCM: ");
+        hcfLabel = new Label("HCF: ");
+        calculateButton = new Button("Calculate");
+        calculateButton.addActionListener(this);
+
+        add(new Label("Number 1: "));
+        add(num1Field);
+        add(new Label("Number 2: "));
+        add(num2Field);
+        add(calculateButton);
+        add(lcmLabel);
+        add(hcfLabel);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == calculateButton) {
+            try {
+                int num1 = Integer.parseInt(num1Field.getText());
+                int num2 = Integer.parseInt(num2Field.getText());
+                int lcm = calculateLCM(num1, num2);
+                int hcf = calculateHCF(num1, num2);
+
+                lcmLabel.setText("LCM: " + lcm);
+                hcfLabel.setText("HCF: " + hcf);
+            } catch (NumberFormatException ex) {
+                lcmLabel.setText("Invalid input");
+                hcfLabel.setText("");
+            }
+        }
+    }
+
+    private int calculateLCM(int a, int b) {
+        return (a * b) / calculateHCF(a, b);
+    }
+
+    private int calculateHCF(int a, int b) {
+        if (b == 0)
+            return a;
+        return calculateHCF(b, a % b);
+    }
+}
+
+
+
+
+// HTML FILE
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LCM and HCF Applet Test</title>
+</head>
+<body>
+    <applet code="LCMHCFApplet.class" width="300" height="150">
+        Your browser does not support Java applets.
+    </applet>
+</body>
+</html>
