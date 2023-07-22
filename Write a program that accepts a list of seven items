@@ -1,0 +1,71 @@
+import java.util.ArrayList;
+import java.util.List;
+
+class VectorOperations {
+    private List<String> vector;
+
+    public VectorOperations() {
+        vector = new ArrayList<>();
+    }
+
+    public void addItem(String item) {
+        vector.add(item);
+    }
+
+    public void deleteSecondItem() {
+        if (vector.size() >= 2) {
+            vector.remove(1);
+        } else {
+            System.out.println("Vector does not have enough elements to delete the second item.");
+        }
+    }
+
+    public void insertItemAtThirdPosition(String item) {
+        if (vector.size() >= 2) {
+            vector.add(2, item);
+        } else {
+            System.out.println("Vector does not have enough elements to insert at the third position.");
+        }
+    }
+
+    public void printVector() {
+        System.out.println("Elements in the vector:");
+        for (String item : vector) {
+            System.out.println(item);
+        }
+    }
+
+    public void insertItemAtLast(String item) {
+        vector.add(item);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        VectorOperations vectorOps = new VectorOperations();
+
+        // Adding seven items to the vector
+        vectorOps.addItem("Item1");
+        vectorOps.addItem("Item2");
+        vectorOps.addItem("Item3");
+        vectorOps.addItem("Item4");
+        vectorOps.addItem("Item5");
+        vectorOps.addItem("Item6");
+        vectorOps.addItem("Item7");
+
+        // Deleting the second item
+        vectorOps.deleteSecondItem();
+
+        // Inserting an item at the third position
+        vectorOps.insertItemAtThirdPosition("New Item");
+
+        // Printing all elements of the vector
+        vectorOps.printVector();
+
+        // Inserting an element at the last
+        vectorOps.insertItemAtLast("Last Item");
+        
+        // Printing the vector after the last insertion
+        vectorOps.printVector();
+    }
+}
